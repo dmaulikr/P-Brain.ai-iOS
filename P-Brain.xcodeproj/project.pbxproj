@@ -1,0 +1,740 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE2F9A48C89AD5013BB5DF52 /* libPods-P-Brain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D55D0EAFDA5155EEC6831277 /* libPods-P-Brain.a */; };
+		EA986AEC1E437F83004A6254 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA986AEB1E437F83004A6254 /* AudioToolbox.framework */; };
+		EA986AEE1E437F8A004A6254 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA986AED1E437F8A004A6254 /* AVFoundation.framework */; };
+		EA986AF01E438C74004A6254 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA986AEF1E438C74004A6254 /* Speech.framework */; };
+		EA986AF21E438D1A004A6254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA986AF11E438D1A004A6254 /* Foundation.framework */; };
+		EA986AF51E439FE5004A6254 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA986AF41E439FE5004A6254 /* QuartzCore.framework */; };
+		EA9EB8F41E41F10000AA9F69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB8F31E41F10000AA9F69 /* main.m */; };
+		EA9EB8F71E41F10000AA9F69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB8F61E41F10000AA9F69 /* AppDelegate.m */; };
+		EA9EB8FA1E41F10000AA9F69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB8F91E41F10000AA9F69 /* ViewController.m */; };
+		EA9EB8FD1E41F10100AA9F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA9EB8FB1E41F10100AA9F69 /* Main.storyboard */; };
+		EA9EB8FF1E41F10100AA9F69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA9EB8FE1E41F10100AA9F69 /* Assets.xcassets */; };
+		EA9EB9021E41F10100AA9F69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA9EB9001E41F10100AA9F69 /* LaunchScreen.storyboard */; };
+		EA9EB90D1E41F10100AA9F69 /* P_BrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB90C1E41F10100AA9F69 /* P_BrainTests.m */; };
+		EA9EB9181E41F10100AA9F69 /* P_BrainUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB9171E41F10100AA9F69 /* P_BrainUITests.m */; };
+		EA9EB92A1E41F30000AA9F69 /* YouTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB9281E41F30000AA9F69 /* YouTableViewCell.m */; };
+		EA9EB92B1E41F30000AA9F69 /* YouTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA9EB9291E41F30000AA9F69 /* YouTableViewCell.xib */; };
+		EA9EB9321E41F6D200AA9F69 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9EB9301E41F6D200AA9F69 /* MeTableViewCell.m */; };
+		EA9EB9331E41F6D200AA9F69 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA9EB9311E41F6D200AA9F69 /* MeTableViewCell.xib */; };
+		EAAE37061E4C8C0E00F9801E /* ExampleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAE37051E4C8C0E00F9801E /* ExampleCollectionViewCell.m */; };
+		EAAE370C1E4CAEE500F9801E /* PData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAE370B1E4CAEE500F9801E /* PData.m */; };
+		EAAE370F1E4CAF3800F9801E /* PComms.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAE370E1E4CAF3800F9801E /* PComms.m */; };
+		EAAE37121E4CAF6500F9801E /* PContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAE37111E4CAF6500F9801E /* PContext.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA9EB9091E41F10100AA9F69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA9EB8E71E41F10000AA9F69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA9EB8EE1E41F10000AA9F69;
+			remoteInfo = "P-Brain";
+		};
+		EA9EB9141E41F10100AA9F69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA9EB8E71E41F10000AA9F69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA9EB8EE1E41F10000AA9F69;
+			remoteInfo = "P-Brain";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5078F8BF697861EEB2299AC6 /* Pods-P-Brain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P-Brain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-P-Brain/Pods-P-Brain.debug.xcconfig"; sourceTree = "<group>"; };
+		A03081C792B944BF838AFE01 /* Pods-P-Brain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P-Brain.release.xcconfig"; path = "Pods/Target Support Files/Pods-P-Brain/Pods-P-Brain.release.xcconfig"; sourceTree = "<group>"; };
+		D55D0EAFDA5155EEC6831277 /* libPods-P-Brain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-P-Brain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA986AEB1E437F83004A6254 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EA986AED1E437F8A004A6254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EA986AEF1E438C74004A6254 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		EA986AF11E438D1A004A6254 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EA986AF31E438D8D004A6254 /* P-Brain.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "P-Brain.entitlements"; sourceTree = "<group>"; };
+		EA986AF41E439FE5004A6254 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EA9EB8EF1E41F10000AA9F69 /* P-Brain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P-Brain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9EB8F31E41F10000AA9F69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EA9EB8F51E41F10000AA9F69 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EA9EB8F61E41F10000AA9F69 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EA9EB8F81E41F10000AA9F69 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EA9EB8F91E41F10000AA9F69 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EA9EB8FC1E41F10100AA9F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EA9EB8FE1E41F10100AA9F69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA9EB9011E41F10100AA9F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EA9EB9031E41F10100AA9F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA9EB9081E41F10100AA9F69 /* P-BrainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "P-BrainTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9EB90C1E41F10100AA9F69 /* P_BrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P_BrainTests.m; sourceTree = "<group>"; };
+		EA9EB90E1E41F10100AA9F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA9EB9131E41F10100AA9F69 /* P-BrainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "P-BrainUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9EB9171E41F10100AA9F69 /* P_BrainUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P_BrainUITests.m; sourceTree = "<group>"; };
+		EA9EB9191E41F10100AA9F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA9EB9271E41F30000AA9F69 /* YouTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTableViewCell.h; sourceTree = "<group>"; };
+		EA9EB9281E41F30000AA9F69 /* YouTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTableViewCell.m; sourceTree = "<group>"; };
+		EA9EB9291E41F30000AA9F69 /* YouTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YouTableViewCell.xib; sourceTree = "<group>"; };
+		EA9EB92F1E41F6D200AA9F69 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
+		EA9EB9301E41F6D200AA9F69 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
+		EA9EB9311E41F6D200AA9F69 /* MeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeTableViewCell.xib; sourceTree = "<group>"; };
+		EAAE37041E4C8C0E00F9801E /* ExampleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleCollectionViewCell.h; sourceTree = "<group>"; };
+		EAAE37051E4C8C0E00F9801E /* ExampleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleCollectionViewCell.m; sourceTree = "<group>"; };
+		EAAE370A1E4CAEE500F9801E /* PData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PData.h; sourceTree = "<group>"; };
+		EAAE370B1E4CAEE500F9801E /* PData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PData.m; sourceTree = "<group>"; };
+		EAAE370D1E4CAF3800F9801E /* PComms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PComms.h; sourceTree = "<group>"; };
+		EAAE370E1E4CAF3800F9801E /* PComms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PComms.m; sourceTree = "<group>"; };
+		EAAE37101E4CAF6500F9801E /* PContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PContext.h; sourceTree = "<group>"; };
+		EAAE37111E4CAF6500F9801E /* PContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PContext.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA9EB8EC1E41F10000AA9F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA986AF51E439FE5004A6254 /* QuartzCore.framework in Frameworks */,
+				EA986AF21E438D1A004A6254 /* Foundation.framework in Frameworks */,
+				EA986AF01E438C74004A6254 /* Speech.framework in Frameworks */,
+				EA986AEE1E437F8A004A6254 /* AVFoundation.framework in Frameworks */,
+				EA986AEC1E437F83004A6254 /* AudioToolbox.framework in Frameworks */,
+				CE2F9A48C89AD5013BB5DF52 /* libPods-P-Brain.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB9051E41F10100AA9F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB9101E41F10100AA9F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1EF04D25107C2612A1D8C1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5078F8BF697861EEB2299AC6 /* Pods-P-Brain.debug.xcconfig */,
+				A03081C792B944BF838AFE01 /* Pods-P-Brain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EA986AEA1E437F82004A6254 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA986AF41E439FE5004A6254 /* QuartzCore.framework */,
+				EA986AF11E438D1A004A6254 /* Foundation.framework */,
+				EA986AEF1E438C74004A6254 /* Speech.framework */,
+				EA986AED1E437F8A004A6254 /* AVFoundation.framework */,
+				EA986AEB1E437F83004A6254 /* AudioToolbox.framework */,
+				D55D0EAFDA5155EEC6831277 /* libPods-P-Brain.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA9EB8E61E41F10000AA9F69 = {
+			isa = PBXGroup;
+			children = (
+				EA9EB8F11E41F10000AA9F69 /* P-Brain */,
+				EA9EB90B1E41F10100AA9F69 /* P-BrainTests */,
+				EA9EB9161E41F10100AA9F69 /* P-BrainUITests */,
+				EA9EB8F01E41F10000AA9F69 /* Products */,
+				EA986AEA1E437F82004A6254 /* Frameworks */,
+				C1EF04D25107C2612A1D8C1B /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		EA9EB8F01E41F10000AA9F69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB8EF1E41F10000AA9F69 /* P-Brain.app */,
+				EA9EB9081E41F10100AA9F69 /* P-BrainTests.xctest */,
+				EA9EB9131E41F10100AA9F69 /* P-BrainUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA9EB8F11E41F10000AA9F69 /* P-Brain */ = {
+			isa = PBXGroup;
+			children = (
+				EAAE37091E4CAEC800F9801E /* PData */,
+				EAAE37081E4CAEC100F9801E /* PComms */,
+				EAAE37071E4CAEB400F9801E /* PContext */,
+				EAAE37031E4C8BF200F9801E /* cells */,
+				EA986AF31E438D8D004A6254 /* P-Brain.entitlements */,
+				EA9EB8F51E41F10000AA9F69 /* AppDelegate.h */,
+				EA9EB8F61E41F10000AA9F69 /* AppDelegate.m */,
+				EA9EB8F81E41F10000AA9F69 /* ViewController.h */,
+				EA9EB8F91E41F10000AA9F69 /* ViewController.m */,
+				EA9EB8FB1E41F10100AA9F69 /* Main.storyboard */,
+				EA9EB8FE1E41F10100AA9F69 /* Assets.xcassets */,
+				EA9EB9001E41F10100AA9F69 /* LaunchScreen.storyboard */,
+				EA9EB9031E41F10100AA9F69 /* Info.plist */,
+				EA9EB8F21E41F10000AA9F69 /* Supporting Files */,
+			);
+			path = "P-Brain";
+			sourceTree = "<group>";
+		};
+		EA9EB8F21E41F10000AA9F69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB8F31E41F10000AA9F69 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA9EB90B1E41F10100AA9F69 /* P-BrainTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB90C1E41F10100AA9F69 /* P_BrainTests.m */,
+				EA9EB90E1E41F10100AA9F69 /* Info.plist */,
+			);
+			path = "P-BrainTests";
+			sourceTree = "<group>";
+		};
+		EA9EB9161E41F10100AA9F69 /* P-BrainUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB9171E41F10100AA9F69 /* P_BrainUITests.m */,
+				EA9EB9191E41F10100AA9F69 /* Info.plist */,
+			);
+			path = "P-BrainUITests";
+			sourceTree = "<group>";
+		};
+		EA9EB9251E41F2CF00AA9F69 /* me */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB92F1E41F6D200AA9F69 /* MeTableViewCell.h */,
+				EA9EB9301E41F6D200AA9F69 /* MeTableViewCell.m */,
+				EA9EB9311E41F6D200AA9F69 /* MeTableViewCell.xib */,
+			);
+			name = me;
+			sourceTree = "<group>";
+		};
+		EA9EB9261E41F2D400AA9F69 /* you */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB9271E41F30000AA9F69 /* YouTableViewCell.h */,
+				EA9EB9281E41F30000AA9F69 /* YouTableViewCell.m */,
+				EA9EB9291E41F30000AA9F69 /* YouTableViewCell.xib */,
+			);
+			name = you;
+			sourceTree = "<group>";
+		};
+		EAAE37031E4C8BF200F9801E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				EA9EB9251E41F2CF00AA9F69 /* me */,
+				EA9EB9261E41F2D400AA9F69 /* you */,
+				EAAE37041E4C8C0E00F9801E /* ExampleCollectionViewCell.h */,
+				EAAE37051E4C8C0E00F9801E /* ExampleCollectionViewCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		EAAE37071E4CAEB400F9801E /* PContext */ = {
+			isa = PBXGroup;
+			children = (
+				EAAE37101E4CAF6500F9801E /* PContext.h */,
+				EAAE37111E4CAF6500F9801E /* PContext.m */,
+			);
+			name = PContext;
+			sourceTree = "<group>";
+		};
+		EAAE37081E4CAEC100F9801E /* PComms */ = {
+			isa = PBXGroup;
+			children = (
+				EAAE370D1E4CAF3800F9801E /* PComms.h */,
+				EAAE370E1E4CAF3800F9801E /* PComms.m */,
+			);
+			name = PComms;
+			sourceTree = "<group>";
+		};
+		EAAE37091E4CAEC800F9801E /* PData */ = {
+			isa = PBXGroup;
+			children = (
+				EAAE370A1E4CAEE500F9801E /* PData.h */,
+				EAAE370B1E4CAEE500F9801E /* PData.m */,
+			);
+			name = PData;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA9EB8EE1E41F10000AA9F69 /* P-Brain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA9EB91C1E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-Brain" */;
+			buildPhases = (
+				1F06243531235528CEA6523B /* [CP] Check Pods Manifest.lock */,
+				EA9EB8EB1E41F10000AA9F69 /* Sources */,
+				EA9EB8EC1E41F10000AA9F69 /* Frameworks */,
+				EA9EB8ED1E41F10000AA9F69 /* Resources */,
+				5674702E1B24E1BFEEEA1CF0 /* [CP] Embed Pods Frameworks */,
+				7C21B1C5D97F774DFC59CA06 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "P-Brain";
+			productName = "P-Brain";
+			productReference = EA9EB8EF1E41F10000AA9F69 /* P-Brain.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA9EB9071E41F10100AA9F69 /* P-BrainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA9EB91F1E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-BrainTests" */;
+			buildPhases = (
+				EA9EB9041E41F10100AA9F69 /* Sources */,
+				EA9EB9051E41F10100AA9F69 /* Frameworks */,
+				EA9EB9061E41F10100AA9F69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA9EB90A1E41F10100AA9F69 /* PBXTargetDependency */,
+			);
+			name = "P-BrainTests";
+			productName = "P-BrainTests";
+			productReference = EA9EB9081E41F10100AA9F69 /* P-BrainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EA9EB9121E41F10100AA9F69 /* P-BrainUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA9EB9221E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-BrainUITests" */;
+			buildPhases = (
+				EA9EB90F1E41F10100AA9F69 /* Sources */,
+				EA9EB9101E41F10100AA9F69 /* Frameworks */,
+				EA9EB9111E41F10100AA9F69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA9EB9151E41F10100AA9F69 /* PBXTargetDependency */,
+			);
+			name = "P-BrainUITests";
+			productName = "P-BrainUITests";
+			productReference = EA9EB9131E41F10100AA9F69 /* P-BrainUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA9EB8E71E41F10000AA9F69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "GRAMMA Music";
+				TargetAttributes = {
+					EA9EB8EE1E41F10000AA9F69 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DMZDNM92BE;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
+					};
+					EA9EB9071E41F10100AA9F69 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = YVS9AMC5R7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EA9EB8EE1E41F10000AA9F69;
+					};
+					EA9EB9121E41F10100AA9F69 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = YVS9AMC5R7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EA9EB8EE1E41F10000AA9F69;
+					};
+				};
+			};
+			buildConfigurationList = EA9EB8EA1E41F10000AA9F69 /* Build configuration list for PBXProject "P-Brain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA9EB8E61E41F10000AA9F69;
+			productRefGroup = EA9EB8F01E41F10000AA9F69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA9EB8EE1E41F10000AA9F69 /* P-Brain */,
+				EA9EB9071E41F10100AA9F69 /* P-BrainTests */,
+				EA9EB9121E41F10100AA9F69 /* P-BrainUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA9EB8ED1E41F10000AA9F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA9EB9331E41F6D200AA9F69 /* MeTableViewCell.xib in Resources */,
+				EA9EB9021E41F10100AA9F69 /* LaunchScreen.storyboard in Resources */,
+				EA9EB92B1E41F30000AA9F69 /* YouTableViewCell.xib in Resources */,
+				EA9EB8FF1E41F10100AA9F69 /* Assets.xcassets in Resources */,
+				EA9EB8FD1E41F10100AA9F69 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB9061E41F10100AA9F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB9111E41F10100AA9F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F06243531235528CEA6523B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5674702E1B24E1BFEEEA1CF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-P-Brain/Pods-P-Brain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C21B1C5D97F774DFC59CA06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-P-Brain/Pods-P-Brain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA9EB8EB1E41F10000AA9F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA9EB9321E41F6D200AA9F69 /* MeTableViewCell.m in Sources */,
+				EA9EB8FA1E41F10000AA9F69 /* ViewController.m in Sources */,
+				EAAE370F1E4CAF3800F9801E /* PComms.m in Sources */,
+				EA9EB92A1E41F30000AA9F69 /* YouTableViewCell.m in Sources */,
+				EA9EB8F71E41F10000AA9F69 /* AppDelegate.m in Sources */,
+				EA9EB8F41E41F10000AA9F69 /* main.m in Sources */,
+				EAAE370C1E4CAEE500F9801E /* PData.m in Sources */,
+				EAAE37121E4CAF6500F9801E /* PContext.m in Sources */,
+				EAAE37061E4C8C0E00F9801E /* ExampleCollectionViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB9041E41F10100AA9F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA9EB90D1E41F10100AA9F69 /* P_BrainTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9EB90F1E41F10100AA9F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA9EB9181E41F10100AA9F69 /* P_BrainUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA9EB90A1E41F10100AA9F69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA9EB8EE1E41F10000AA9F69 /* P-Brain */;
+			targetProxy = EA9EB9091E41F10100AA9F69 /* PBXContainerItemProxy */;
+		};
+		EA9EB9151E41F10100AA9F69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA9EB8EE1E41F10000AA9F69 /* P-Brain */;
+			targetProxy = EA9EB9141E41F10100AA9F69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EA9EB8FB1E41F10100AA9F69 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA9EB8FC1E41F10100AA9F69 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EA9EB9001E41F10100AA9F69 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA9EB9011E41F10100AA9F69 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EA9EB91A1E41F10100AA9F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EA9EB91B1E41F10100AA9F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA9EB91D1E41F10100AA9F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5078F8BF697861EEB2299AC6 /* Pods-P-Brain.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "P-Brain/P-Brain.entitlements";
+				DEVELOPMENT_TEAM = DMZDNM92BE;
+				INFOPLIST_FILE = "P-Brain/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patai.P-Brain";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EA9EB91E1E41F10100AA9F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A03081C792B944BF838AFE01 /* Pods-P-Brain.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "P-Brain/P-Brain.entitlements";
+				DEVELOPMENT_TEAM = DMZDNM92BE;
+				INFOPLIST_FILE = "P-Brain/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.patai.P-Brain";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EA9EB9201E41F10100AA9F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YVS9AMC5R7;
+				INFOPLIST_FILE = "P-BrainTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gramma-music.P-BrainTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P-Brain.app/P-Brain";
+			};
+			name = Debug;
+		};
+		EA9EB9211E41F10100AA9F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YVS9AMC5R7;
+				INFOPLIST_FILE = "P-BrainTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gramma-music.P-BrainTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P-Brain.app/P-Brain";
+			};
+			name = Release;
+		};
+		EA9EB9231E41F10100AA9F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YVS9AMC5R7;
+				INFOPLIST_FILE = "P-BrainUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gramma-music.P-BrainUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "P-Brain";
+			};
+			name = Debug;
+		};
+		EA9EB9241E41F10100AA9F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YVS9AMC5R7;
+				INFOPLIST_FILE = "P-BrainUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gramma-music.P-BrainUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "P-Brain";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA9EB8EA1E41F10000AA9F69 /* Build configuration list for PBXProject "P-Brain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA9EB91A1E41F10100AA9F69 /* Debug */,
+				EA9EB91B1E41F10100AA9F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA9EB91C1E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-Brain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA9EB91D1E41F10100AA9F69 /* Debug */,
+				EA9EB91E1E41F10100AA9F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA9EB91F1E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-BrainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA9EB9201E41F10100AA9F69 /* Debug */,
+				EA9EB9211E41F10100AA9F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA9EB9221E41F10100AA9F69 /* Build configuration list for PBXNativeTarget "P-BrainUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA9EB9231E41F10100AA9F69 /* Debug */,
+				EA9EB9241E41F10100AA9F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA9EB8E71E41F10000AA9F69 /* Project object */;
+}
