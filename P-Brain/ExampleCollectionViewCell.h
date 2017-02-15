@@ -10,6 +10,6 @@
 
 @interface ExampleCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *exampleCommand;
+@property (strong, nonatomic) IBOutlet UILabel *exampleCommand;
 
 @end

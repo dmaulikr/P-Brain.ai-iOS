@@ -10,17 +10,26 @@
 #import "YouTableViewCell.h"
 #import "MeTableViewCell.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import <Speech/Speech.h>
 #import <XCDYouTubeKit/XCDYouTubeKit.h>
+#include <EZAudio/EZAudio.h>
 #import "ExampleCollectionViewCell.h"
 #import "PComms.h"
+#import "snowboy-detect.h"
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,AVSpeechSynthesizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *chatView;
-@property (weak, nonatomic) IBOutlet UIButton *speech;
-@property (weak, nonatomic) IBOutlet UITextField *input;
+
+
+
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,AVSpeechSynthesizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,EZMicrophoneDelegate> {
+        snowboy::SnowboyDetect* _snowboyDetect;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *chatView;
+@property (strong, nonatomic) IBOutlet UIButton *speech;
+@property (strong, nonatomic) IBOutlet UITextField *input;
 @property (strong, nonatomic) IBOutlet UICollectionView *exampleCollection;
 
 
@@ -36,6 +45,8 @@
 @property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
 @property (strong, nonatomic) NSString *pburl;
 @property (strong, nonatomic) XCDYouTubeVideoPlayerViewController *videoPlayerViewController;
+@property (nonatomic, strong) EZMicrophone *microphone;
+
 
     
 

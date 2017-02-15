@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>EZAudio.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-P-Brain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TPCircularBuffer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2DA36EAF64745C432E683E5E3B405A6B</key>
+		<key>0FF42FAF2F1385A18E8DD9E261EA8764</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F64ED2D63CEDC4B82F214E1B073C483</key>
+		<key>6807B53894B5AFB5835D307C300B635E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FF60DE147EAEB8866BEC1A8F9A1DC67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C38D8E57DB9B4FCDD59EA9CD3CD0E8DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

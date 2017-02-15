@@ -10,9 +10,9 @@
 
 @interface YouTableViewCell : UITableViewCell
 
-@property (nonatomic, weak, nullable) IBOutlet UIView *wrapper;
-@property (nonatomic, weak, nullable) IBOutlet UILabel *content;
-@property (nonatomic, weak, nullable) IBOutlet UIImageView *avatar;
-@property (nonatomic, weak, nullable) IBOutlet UILabel *timestamp;
+@property (nonatomic, strong, nullable) IBOutlet UIView *wrapper;
+@property (nonatomic, strong, nullable) IBOutlet UILabel *content;
+@property (nonatomic, strong, nullable) IBOutlet UIImageView *avatar;
+@property (nonatomic, strong, nullable) IBOutlet UILabel *timestamp;
 
 @end
