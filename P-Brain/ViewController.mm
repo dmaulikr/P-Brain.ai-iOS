@@ -24,13 +24,10 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *error;
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    
-    
     [session setMode:AVAudioSessionModeMeasurement error:&error];
     
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
-    
     
     [session setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&error];
     if (error) {
@@ -40,7 +37,6 @@
 
     [self initSnowboy];
     [self initMic];
-
 }
 
 - (void) initMic {
@@ -59,16 +55,6 @@
     [self.microphone setDevice:[inputs lastObject]];
     self.microphone = [EZMicrophone microphoneWithDelegate:self withAudioStreamBasicDescription:audioStreamBasicDescription];
     [self.microphone startFetchingAudio];
-    
-
-}
-
-- (void) pushFromMeResponse: (NSString*)msg withTimestamp:(NSString*)timestamp {
-    NSDictionary* dict = @{@"msg":@{@"text":msg}, @"owner":@"me",@"timestamp":timestamp};
-    [self.tableData addObject:dict];
-    [self reloadTableWithData:self.tableData];
-    [self fetchResponse:msg];
-    [self.input setText:@""];
 }
 
 - (void) initSnowboy {
@@ -78,6 +64,14 @@
                                                 std::string([[[NSBundle mainBundle]pathForResource:@"Brain" ofType:@"pmdl"] UTF8String]));
     _snowboyDetect->SetSensitivity("0.55");        // Sensitivity for each hotword
     _snowboyDetect->SetAudioGain(2.0);
+}
+
+- (void) pushFromMeResponse: (NSString*)msg withTimestamp:(NSString*)timestamp {
+    NSDictionary* dict = @{@"msg":@{@"text":msg}, @"owner":@"me",@"timestamp":timestamp};
+    [self.tableData addObject:dict];
+    [self reloadTableWithData:self.tableData];
+    [self fetchResponse:msg];
+    [self.input setText:@""];
 }
 
 - (void) pushFromYouResponse: (NSString*)msg withTimestamp:(NSString*)timestamp andResp:(NSMutableDictionary*)resp {
