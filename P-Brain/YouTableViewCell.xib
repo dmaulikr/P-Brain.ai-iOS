@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.98669377853881279" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.95134132420091322" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Me" translatesAutoresizingMaskIntoConstraints="NO" id="NUM-rc-uSi">
                         <rect key="frame" x="313" y="0.0" width="41" height="41"/>

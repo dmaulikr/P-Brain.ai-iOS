@@ -33,6 +33,8 @@
 		EAAE372B1E5221B800F9801E /* common.res in Resources */ = {isa = PBXBuildFile; fileRef = EAAE37291E521EEC00F9801E /* common.res */; };
 		EAAEE3ED1E52ECDD0051D7DE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAAEE3EC1E52ECDD0051D7DE /* Accelerate.framework */; };
 		EAAEE3EF1E5373BC0051D7DE /* Brain.pmdl in Resources */ = {isa = PBXBuildFile; fileRef = EAAEE3EE1E5373AC0051D7DE /* Brain.pmdl */; };
+		EAD06C231E55CE4A00C23345 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD06C221E55CE4A00C23345 /* LoginViewController.m */; };
+		EAD06C261E55CE5F00C23345 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD06C251E55CE5F00C23345 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,10 @@
 		EAAE37291E521EEC00F9801E /* common.res */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.res; sourceTree = "<group>"; };
 		EAAEE3EC1E52ECDD0051D7DE /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EAAEE3EE1E5373AC0051D7DE /* Brain.pmdl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brain.pmdl; sourceTree = "<group>"; };
+		EAD06C211E55CE4A00C23345 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EAD06C221E55CE4A00C23345 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EAD06C241E55CE5F00C23345 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EAD06C251E55CE5F00C23345 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +201,10 @@
 				EA9EB9001E41F10100AA9F69 /* LaunchScreen.storyboard */,
 				EA9EB9031E41F10100AA9F69 /* Info.plist */,
 				EA9EB8F21E41F10000AA9F69 /* Supporting Files */,
+				EAD06C211E55CE4A00C23345 /* LoginViewController.h */,
+				EAD06C221E55CE4A00C23345 /* LoginViewController.m */,
+				EAD06C241E55CE5F00C23345 /* MainViewController.h */,
+				EAD06C251E55CE5F00C23345 /* MainViewController.m */,
 			);
 			path = "P-Brain";
 			sourceTree = "<group>";
@@ -490,10 +500,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD06C261E55CE5F00C23345 /* MainViewController.m in Sources */,
 				EA9EB9321E41F6D200AA9F69 /* MeTableViewCell.m in Sources */,
 				EA9EB8FA1E41F10000AA9F69 /* ViewController.mm in Sources */,
 				EAAE370F1E4CAF3800F9801E /* PComms.m in Sources */,
 				EA9EB92A1E41F30000AA9F69 /* YouTableViewCell.m in Sources */,
+				EAD06C231E55CE4A00C23345 /* LoginViewController.m in Sources */,
 				EA9EB8F71E41F10000AA9F69 /* AppDelegate.m in Sources */,
 				EA9EB8F41E41F10000AA9F69 /* main.m in Sources */,
 				EAAE370C1E4CAEE500F9801E /* PData.m in Sources */,
@@ -649,6 +661,7 @@
 				CODE_SIGN_ENTITLEMENTS = "P-Brain/P-Brain.entitlements";
 				DEVELOPMENT_TEAM = YVS9AMC5R7;
 				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = "P-Brain/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -669,6 +682,7 @@
 				CODE_SIGN_ENTITLEMENTS = "P-Brain/P-Brain.entitlements";
 				DEVELOPMENT_TEAM = YVS9AMC5R7;
 				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = "P-Brain/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

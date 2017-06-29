@@ -62,8 +62,8 @@
     
     _snowboyDetect = new snowboy::SnowboyDetect(std::string([[[NSBundle mainBundle]pathForResource:@"common" ofType:@"res"] UTF8String]),
                                                 std::string([[[NSBundle mainBundle]pathForResource:@"Brain" ofType:@"pmdl"] UTF8String]));
-    _snowboyDetect->SetSensitivity("0.55");        // Sensitivity for each hotword
-    _snowboyDetect->SetAudioGain(2.0);
+    _snowboyDetect->SetSensitivity("0.5");        // Sensitivity for each hotword
+    _snowboyDetect->SetAudioGain(1.0);
 }
 
 - (void) pushFromMeResponse: (NSString*)msg withTimestamp:(NSString*)timestamp {
@@ -146,9 +146,6 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         int result = _snowboyDetect->RunDetection(buffer[0], bufferSize);  // buffer[0] is a float array
         if (result == 1) {
             [self start_rec:self.speech];
-            NSLog(@"alexa snowboy or something");
-        } else {
-            NSLog(@"RESULT %d",result);
         }
     });
 }
@@ -189,7 +186,13 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     [utterance setVolume:1];
     [self.synthesizer speakUtterance:utterance];
 }
-    
+
+- (void) silence_time  {
+    [self start_rec:self.speech];
+    self.input.text = @"";
+
+}
+
 - (IBAction)start_rec:(UIButton *)sender {
     if (isRunning) {
         [self.microphone startFetchingAudio];
@@ -208,16 +211,19 @@ withNumberOfChannels:(UInt32)numberOfChannels {
             
             [self pushFromMeResponse:self.input.text withTimestamp:[self get_timestamp]];
         }
+        self.input.text = @"";
     } else {
         [self.microphone stopFetchingAudio];
 
         [sender setSelected:YES];
         [sender setBackgroundColor:[UIColor colorWithRed:41.0f/255.0f green:128.0f/255.0f blue:185.0f/255.0f alpha:1.0]];
         [sender setBackgroundImage:[UIImage imageNamed:@"Mic-White"] forState:UIControlStateSelected];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(silence_time) userInfo:nil repeats:NO];
         [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
             if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
                 isRunning = YES;
                 [self startRecognition];
+
             }
         }];
     }
@@ -272,7 +278,6 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showServerURLBox];
 }
 
 - (void) showServerURLBox {
@@ -287,7 +292,7 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         [alert addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             NSString * url = alert.textFields.firstObject.text;
             if (url){
-                self.pburl = [NSString stringWithFormat:@"http://%@:4567/api/ask?q=",url];
+                self.pburl = [NSString stringWithFormat:@"http://%@:4567/api/",url];
                 [[NSUserDefaults standardUserDefaults] setValue:self.pburl forKey:@"pburl"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }

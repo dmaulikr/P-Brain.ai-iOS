@@ -13,5 +13,6 @@
 +(PComms*) getComms;
 
 - (void)makeGetReq:(NSString *)query withBlock:(void (^) (id response, id error))handler;
+- (void)makeLoginRequestWithUser: (NSString*) name andPass:(NSString*)pass withBlock:(void (^) (id response, id error))handler;
 
 @end
