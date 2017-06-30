@@ -20,32 +20,21 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSExceptionDomains</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>localhost</key>
-		<dict>
-			<key>NSExceptionAllowsInsecureHTTPLoads</key>
-			<false/>
-			<key>NSExceptionMinimumTLSVersion</key>
-			<string>TLSv1.2</string>
-			<key>NSExceptionRequiresForwardSecrecy</key>
-			<true/>
-			<key>NSIncludesSubdomains</key>
-			<false/>
-			<key>NSRequiresCertificateTransparency</key>
-			<false/>
-			<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-			<false/>
-			<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-			<string>TLSv1.2</string>
-			<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-			<true/>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>avatar selection</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Reasons and Stuff</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Make Query With Voice</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

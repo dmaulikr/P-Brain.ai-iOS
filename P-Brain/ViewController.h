@@ -16,14 +16,11 @@
 #include <EZAudio/EZAudio.h>
 #import "ExampleCollectionViewCell.h"
 #import "PComms.h"
+#import "SimpleCam.h"
 #import "snowboy-detect.h"
 
 
-
-
-
-
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,AVSpeechSynthesizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,EZMicrophoneDelegate> {
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,AVSpeechSynthesizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource,EZMicrophoneDelegate,SimpleCamDelegate> {
         snowboy::SnowboyDetect* _snowboyDetect;
 }
 
@@ -31,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *speech;
 @property (strong, nonatomic) IBOutlet UITextField *input;
 @property (strong, nonatomic) IBOutlet UICollectionView *exampleCollection;
+@property (strong, nonatomic) IBOutlet UIButton *avatar;
 
 
 @property (strong, nonatomic) NSMutableArray *tableData;
@@ -55,6 +53,7 @@
     
 
 - (IBAction) start_rec:(UIButton *)sender;
+- (IBAction)showCameraPicker;
     
 
 

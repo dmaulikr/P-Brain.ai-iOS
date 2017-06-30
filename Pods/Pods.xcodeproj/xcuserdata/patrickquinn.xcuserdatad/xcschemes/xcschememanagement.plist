@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SimpleCam.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TPCircularBuffer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3E9FC3E8A70DDAE999F3DD946F882003</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6807B53894B5AFB5835D307C300B635E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6FF60DE147EAEB8866BEC1A8F9A1DC67</key>
+		<key>A5D60E1876F6E4A31E7AAD3C1141D84A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C38D8E57DB9B4FCDD59EA9CD3CD0E8DA</key>
+		<key>EBA43EBDB8FF467267E84A0DB3FECB63</key>
 		<dict>
 			<key>primary</key>
 			<true/>

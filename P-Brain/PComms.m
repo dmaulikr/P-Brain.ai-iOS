@@ -35,9 +35,11 @@ static PComms *comms = nil;
     NSString * token = [[NSUserDefaults standardUserDefaults]
                   stringForKey:@"token"];
     
-    NSLog(@"SERVER URL %@", _serverUrl);
     
     NSString * base_url = [NSString stringWithFormat:@"%@%@q=%@&token=%@",_serverUrl,ASK_URL,query,token];
+    
+    NSLog(@"SERVER URL %@", base_url);
+
     
     base_url = [base_url stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     
@@ -50,9 +52,14 @@ static PComms *comms = nil;
     [sharedSessionMainQueue dataTaskWithURL:[NSURL URLWithString:base_url] completionHandler:^(NSData *data,
                                                                                                NSURLResponse *response,
                                                                                                NSError *error){
-        NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSMutableArray * temp_resp = [resp mutableCopy];
-        handler(temp_resp, error);
+        if (!data || error){
+            handler(nil,error);
+        } else {
+            NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            NSMutableArray * temp_resp = [resp mutableCopy];
+            handler(temp_resp, error);
+        }
+        
     }];
     [dataTask resume];
 }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EBA43EBDB8FF467267E84A0DB3FECB63'
-               BlueprintName = 'XCDYouTubeKit'
+               BlueprintIdentifier = 'A5D60E1876F6E4A31E7AAD3C1141D84A'
+               BlueprintName = 'SimpleCam'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libXCDYouTubeKit.a'>
+               BuildableName = 'libSimpleCam.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -5,18 +5,21 @@ PODS:
   - EZAudio/Full (1.1.5):
     - EZAudio/Core
     - TPCircularBuffer (= 1.1)
+  - SimpleCam (0.1.5)
   - TPCircularBuffer (1.1)
-  - XCDYouTubeKit (2.5.4)
+  - XCDYouTubeKit (2.5.5)
 
 DEPENDENCIES:
   - EZAudio
+  - SimpleCam (~> 0.1)
   - XCDYouTubeKit (~> 2.5)
 
 SPEC CHECKSUMS:
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
+  SimpleCam: c51100cde507bffdcac55e9c759a2e122aa5990c
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
-  XCDYouTubeKit: 80eb3978dae220a0116d198bca6852c6c969fa66
+  XCDYouTubeKit: 86f4e7a9c2baa7b7adf6abfc28ac3ab34927be2d
 
-PODFILE CHECKSUM: a206399af2b50d6468f10af3e6530a932900ba16
+PODFILE CHECKSUM: 572084cb09c273740a9b208b03b586da931cbc1b
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.1

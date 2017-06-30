@@ -35,8 +35,9 @@
         NSLog(@"RES %@", response);
         NSLog(@"ERR %@", error);
 
-        if ([response valueForKey:@"token"]){
-            [[NSUserDefaults standardUserDefaults] setValue:[response valueForKey:@"token"] forKey:@"token"];
+        if (!error && response && [response valueForKey:@"token"]){
+            NSString * token = [[response objectForKey:@"token"] valueForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"token"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSNotificationCenter defaultCenter] removeObserver:self];
 
@@ -46,8 +47,29 @@
                 [self presentViewController:vc animated:NO completion:nil];
             });
             
+        } else {
+            [self showAlert];
         }
     }];
+}
+
+- (void) showAlert {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Uh Ohhh"
+                                 message:@"Seems either your username or password are incorrect! Try again?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    [self.name becomeFirstResponder];
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void) initKeyboardNotifications {

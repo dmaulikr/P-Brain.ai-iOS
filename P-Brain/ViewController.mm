@@ -8,10 +8,13 @@
 
 #import "ViewController.h"
 
+
+
 @interface ViewController () {
     BOOL isKeyboardHidden;
     BOOL isRunning;
     BOOL isProcessing;
+    UIImage * selfie;
 }
 
 @end
@@ -26,6 +29,20 @@
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
     [session setMode:AVAudioSessionModeMeasurement error:&error];
     
+    [self.avatar.imageView setContentMode:UIViewContentModeScaleAspectFill];
+
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatar"];
+    
+    if (imageData){
+        UIImage* image = [UIImage imageWithData:imageData];
+        selfie = image;
+    } else {
+        selfie = [UIImage imageNamed:@"Avatar"];
+    }
+    
+    [self.avatar setImage:selfie forState:UIControlStateNormal];
+
+    
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
     
@@ -34,6 +51,15 @@
         NSLog(@"ERROR%@", error);
         return;
     }
+    
+    [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+        if (granted) {
+            NSLog(@"Permission granted");
+        }
+        else {
+            NSLog(@"Permission denied");
+        }
+    }];
 
     [self initSnowboy];
     [self initMic];
@@ -86,8 +112,12 @@
          dict = @{@"msg":@{@"text":msg}, @"owner":@"you",@"timestamp":timestamp};
     }
     [self.tableData addObject:dict];
-    [self reloadTableWithData:self.tableData];
-    [self speak_msg:msg];
+    dispatch_time_t deferTime = 2.0f;
+    dispatch_after(deferTime, dispatch_get_main_queue(), ^{
+        [self reloadTableWithData:self.tableData];
+        [self speak_msg:msg];
+    });
+    
 }
 
 - (void) setRecordingButtonActive {
@@ -271,6 +301,7 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 
 - (void) fetchResponse:(NSString*)query {
     [[PComms getComms] makeGetReq:query withBlock:^(id response, id error) {
+        NSLog(@"RESPONSEORIAL %@", response);
         [self pushFromYouResponse:[[response objectForKey:@"msg"] valueForKey:@"text"] withTimestamp:[self get_timestamp] andResp:[response mutableCopy]];
         isProcessing = NO;
     }];
@@ -330,12 +361,10 @@ withNumberOfChannels:(UInt32)numberOfChannels {
             cell = [topLevelObjects objectAtIndex:0];
         }
         
-        
         if ([[item valueForKey:@"type"] containsString:@"song"] && indexPath.row == 0) {
             
             UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, cell.wrapper.frame.size.width,
                                                                                  cell.wrapper.frame.size.height)];
-
             NSString * id = [[item objectForKey:@"msg"] valueForKey:@"id"];
             [cell.wrapper addSubview:videoContainerView];
             self.videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:id];
@@ -344,6 +373,19 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         } else {
             [self.videoPlayerViewController.moviePlayer stop];
             cell.content.text = [[item objectForKey:@"msg"] valueForKey:@"text"];
+        }
+
+        if ([[item valueForKey:@"type"] containsString:@"news"] && [[item objectForKey:@"msg"] valueForKey:@"url"]){
+//            cell.action.tag = indexPath.row;
+//            [cell.action addTarget:self action:@selector(openUrl:) forControlEvents:UIControlStateNormal];
+//            cell.action.userInteractionEnabled = YES;
+//            [cell bringSubviewToFront:cell.action];
+//            NSLog(@"YES ITS NEWS!");
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+            [self pulseView:cell.wrapper];
+        } else {
+            cell.action.userInteractionEnabled = NO;
         }
         
         cell.timestamp.text = [item valueForKey:@"timestamp"];
@@ -361,6 +403,8 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         cell.content.text = [[item objectForKey:@"msg"] valueForKey:@"text"];
         cell.timestamp.text = [item valueForKey:@"timestamp"];
         
+        cell.avatar.image = selfie;
+
         if (indexPath.row == [self.tableData count] -1){
             CGRect basketTopFrame = cell.frame;
             basketTopFrame.origin.x = self.view.frame.size.width;
@@ -370,20 +414,33 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     }
 }
 
+- (void)openUrl:(UIButton*)sender {
+    NSDictionary * item = [self.flippedTableData objectAtIndex:sender.tag];
+    
+    NSURL *url = [NSURL URLWithString:[[item objectForKey:@"msg"] valueForKey:@"url"]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        NSLog(@"Nope!");
+    }
+}
+
 - (void) keyboardWillShow: (NSNotification*) notification {
     if (isKeyboardHidden){
         [UIView beginAnimations:nil context:NULL];
         
+        UIViewAnimationCurve curve = (UIViewAnimationCurve) [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
+        
         [UIView setAnimationDuration:[[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-//        [UIView setAnimationCurve:[[[notification userInfo] objectForKey: UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+        [UIView setAnimationCurve:curve];
         [UIView setAnimationBeginsFromCurrentState:YES];
         
         CGRect rect = [[self view] frame];
         
-        rect.origin.y -= [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
-        
+        rect.size.height -= [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
         [[self view] setFrame: rect];
-        
+        [self.chatView setContentInset:UIEdgeInsetsMake(30, 0, 0, 0)];
+        [self.chatView setContentOffset:CGPointMake(0.0f, -30.0f) animated:NO];
         [UIView commitAnimations];
         isKeyboardHidden = NO;
     }
@@ -393,16 +450,17 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     if (!isKeyboardHidden){
         [UIView beginAnimations:nil context:NULL];
         
+        UIViewAnimationCurve curve = (UIViewAnimationCurve) [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
+
+        
         [UIView setAnimationDuration:[[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-//        [UIView setAnimationCurve:[[[notification userInfo] objectForKey: UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+        [UIView setAnimationCurve:curve];
         [UIView setAnimationBeginsFromCurrentState:YES];
-        
         CGRect rect = [[self view] frame];
-        
-        rect.origin.y += [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
-        
+        rect.size.height += [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
         [[self view] setFrame: rect];
-        
+        [self.chatView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [self.chatView setContentOffset:CGPointMake(0.0f, 0.0f) animated:NO];
         [UIView commitAnimations];
         isKeyboardHidden = YES;
     }
@@ -457,6 +515,18 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     [self fetchResponse:row];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary * item = [self.flippedTableData objectAtIndex:indexPath.row];
+    
+    NSURL *url = [NSURL URLWithString:[[item objectForKey:@"msg"] valueForKey:@"url"]];
+    if (url && [[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        NSLog(@"Nope!");
+    }
+
+}
+
 - (void) initAudioListening {
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:nil];
     
@@ -468,6 +538,7 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     self.audioEngine = [[AVAudioEngine alloc] init];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stopSpeech)];
+    tap.cancelsTouchesInView = NO;
     [self.chatView addGestureRecognizer:tap];
 }
 
@@ -481,10 +552,56 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     [self pushFromYouResponse:[self get_tod_greeting] withTimestamp:[self get_timestamp] andResp:nil];
 }
 
+- (void) pulseView:(UIView*)view {
+    CABasicAnimation *pulse;
+    
+    pulse=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    pulse.duration=0.85;
+    pulse.repeatCount=HUGE_VALF;
+    pulse.autoreverses=YES;
+    pulse.fromValue=[NSNumber numberWithFloat:1.0];
+    pulse.toValue=[NSNumber numberWithFloat:0.65];
+    [view.layer addAnimation:pulse forKey:@"animateOpacity"];
+}
+
 - (void) initUI {
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableData = [[NSMutableArray alloc] init];
     self.speech.layer.cornerRadius = self.speech.frame.size.width / 2;
+
+    self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
+    self.avatar.layer.masksToBounds = YES;
+    [self.avatar.layer setBorderColor: [[UIColor groupTableViewBackgroundColor] CGColor]];
+    [self.avatar.layer setBorderWidth: 2.0];
+    
+//    [self.avatar addTarget:self action:@selector(showCameraPicker) forControlEvents:UIControlStateNormal];
+}
+
+- (void) simpleCam:(SimpleCam *)simpleCam didFinishWithImage:(UIImage *)image {
+    
+    if (image) {
+        // simple cam finished with image
+        [self.avatar setImage:image forState:UIControlStateNormal];
+        selfie = image;
+        [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(image) forKey:@"avatar"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.chatView reloadData];
+    }
+    else {
+        // simple cam finished w/o image
+    }
+    
+    // Close simpleCam - use this as opposed to dismissViewController: to properly end photo session
+    [simpleCam closeWithCompletion:^{
+        NSLog(@"SimpleCam is done closing ... ");
+        // It is safe to launch other ViewControllers, for instance, an editor here.
+    }];
+}
+
+- (IBAction)showCameraPicker {
+    SimpleCam * simpleCam = [[SimpleCam alloc]init];
+    simpleCam.delegate = self;
+    [self presentViewController:simpleCam animated:YES completion:nil];
 }
 
 - (void) initOrientation {
