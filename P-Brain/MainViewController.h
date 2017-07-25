@@ -10,4 +10,9 @@
 
 @interface MainViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
+
+@property (strong, nonatomic) NSOperationQueue *queue;
+@property (strong, nonatomic) NSTimer *timer;
+
 @end

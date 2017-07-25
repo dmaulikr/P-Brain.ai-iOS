@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "PData.h"
 
 @interface MainViewController ()
 
@@ -16,17 +17,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activity startAnimating];
+    NSString * base_ip = [[PData getData] getIPAddress];
+
+    NSArray *nets = [base_ip componentsSeparatedByString:@"."];
+
+    NSString * path = [NSString stringWithFormat:@"%@.%@.%@.",[nets objectAtIndex:0],[nets objectAtIndex:1],[nets objectAtIndex:2]];
+    [self loopThroughSubnet:path];
+}
+
+- (void) loopThroughSubnet:(NSString*)path {
+    for (int i = 0; i<= 255;i++){
+        NSString * sub = [NSString stringWithFormat:@"%d", i];
+
+        NSString * combi = [path stringByAppendingString:sub];
+
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:4567/api/status",combi]]];
+        if (!self.queue){
+            self.queue = [[NSOperationQueue alloc] init];
+        }
+        [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (!error){
+                NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                if ([[resp valueForKey:@"msg"] isEqualToString:@"OK"]){
+                    [self.queue cancelAllOperations];
+                    [self.timer invalidate];
+                    NSString * pburl = [NSString stringWithFormat:@"http://%@:4567/api/",combi];
+                    [[NSUserDefaults standardUserDefaults] setValue:pburl forKey:@"pburl"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self tokenCheck];
+                    });
+                }
+            }
+        }];
+    }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    
-    BOOL is_showing = [self showServerURLBox];
-    
-    if (!is_showing){
-        [self tokenCheck];
-    }
-    
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                     target:self
+                                   selector:@selector(checkWetherToShow)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+- (void) checkWetherToShow {
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+
+        BOOL is_showing = [self showServerURLBox];
+
+        if (!is_showing){
+            [self tokenCheck];
+        }
 }
 
 - (void) tokenCheck {
@@ -57,7 +101,8 @@
                            valueForKey:@"pburl"];
     
     if (serverURL == nil){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Enter P-Brain.ai URL" message:@"Enter the local URL for your P-Brain.ai server here..." preferredStyle:UIAlertControllerStyleAlert];
+        [self.activity stopAnimating];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Local P-Brain.ai Server Found." message:@"Enter the URL for your P-Brain.ai server here..." preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             NSString * url = alert.textFields.firstObject.text;
             if (url){

@@ -17,6 +17,11 @@
     BOOL isKeyboardHidden;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loginUserWithName:@"demo" andPass:@"demo"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initKeyboardNotifications];

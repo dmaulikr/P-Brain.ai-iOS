@@ -15,6 +15,8 @@
 @property (nonatomic, strong, nullable) IBOutlet UIImageView *avatar;
 @property (nonatomic, strong, nullable) IBOutlet UILabel *timestamp;
 @property (nonatomic, strong, nullable) IBOutlet UIButton *action;
+@property (nonatomic, strong, nullable) IBOutlet UILabel *source;
+
 
 
 

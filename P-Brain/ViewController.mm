@@ -15,6 +15,8 @@
     BOOL isRunning;
     BOOL isProcessing;
     UIImage * selfie;
+    CGRect rect;
+    BOOL shouldReInit;
 }
 
 @end
@@ -24,10 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPB];
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *error;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    [session setMode:AVAudioSessionModeMeasurement error:&error];
+
     
     [self.avatar.imageView setContentMode:UIViewContentModeScaleAspectFill];
 
@@ -42,16 +41,28 @@
     
     [self.avatar setImage:selfie forState:UIControlStateNormal];
 
-    
+    rect = [[self view] frame];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setUpVoiceRecognition];
+}
+
+- (void) setUpVoiceRecognition {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    [session setMode:AVAudioSessionModeMeasurement error:&error];
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
-    
+
     [session setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&error];
     if (error) {
         NSLog(@"ERROR%@", error);
         return;
     }
-    
+
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         if (granted) {
             NSLog(@"Permission granted");
@@ -61,8 +72,8 @@
         }
     }];
 
-    [self initSnowboy];
     [self initMic];
+    [self initSnowboy];
 }
 
 - (void) initMic {
@@ -101,7 +112,6 @@
 }
 
 - (void) pushFromYouResponse: (NSString*)msg withTimestamp:(NSString*)timestamp andResp:(NSMutableDictionary*)resp {
-    
     NSDictionary * dict;
 
     if (resp){
@@ -273,7 +283,9 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     if (self.recognitionTask != nil) {
         [self.recognitionTask cancel];
         self.recognitionTask = nil;
-        self.input.text = @"";
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.input.text = @"";
+        });
     }
     
     [self.audioEngine.inputNode installTapOnBus:0 bufferSize:1024 format:[self.audioEngine.inputNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
@@ -286,6 +298,8 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         if (result && !result.isFinal) {
             if (!isProcessing){
                 self.input.text = result.bestTranscription.formattedString;
+            } else {
+                self.input.text = @"";
             }
         }
         if (error) {
@@ -300,15 +314,16 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 
 
 - (void) fetchResponse:(NSString*)query {
+    if (isKeyboardHidden){
+        [self.chatView setContentOffset:CGPointZero animated:YES];
+    }
     [[PComms getComms] makeGetReq:query withBlock:^(id response, id error) {
-        NSLog(@"RESPONSEORIAL %@", response);
         [self pushFromYouResponse:[[response objectForKey:@"msg"] valueForKey:@"text"] withTimestamp:[self get_timestamp] andResp:[response mutableCopy]];
         isProcessing = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.input.text = @"";
+        });
     }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
 }
 
 - (void) showServerURLBox {
@@ -382,9 +397,12 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 //            [cell bringSubviewToFront:cell.action];
 //            NSLog(@"YES ITS NEWS!");
 //            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            NSURL *url = [NSURL URLWithString:[[item objectForKey:@"msg"] valueForKey:@"url"]];
+            cell.source.text = [url host];
             
             [self pulseView:cell.wrapper];
         } else {
+            cell.source.text = @"";
             cell.action.userInteractionEnabled = NO;
         }
         
@@ -435,18 +453,18 @@ withNumberOfChannels:(UInt32)numberOfChannels {
         [UIView setAnimationCurve:curve];
         [UIView setAnimationBeginsFromCurrentState:YES];
         
-        CGRect rect = [[self view] frame];
-        
+
         rect.size.height -= [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
         [[self view] setFrame: rect];
-        [self.chatView setContentInset:UIEdgeInsetsMake(30, 0, 0, 0)];
-        [self.chatView setContentOffset:CGPointMake(0.0f, -30.0f) animated:NO];
+//        [self.chatView setContentInset:UIEdgeInsetsMake(30, 0, 0, 0)];
+//        [self.chatView setContentOffset:CGPointMake(0.0f, -30.0f) animated:NO];
         [UIView commitAnimations];
         isKeyboardHidden = NO;
     }
 }
 
 - (void) keyboardWillHide: (NSNotification*) notification {
+    NSLog(@"IS SHOWING");
     if (!isKeyboardHidden){
         [UIView beginAnimations:nil context:NULL];
         
@@ -599,9 +617,11 @@ withNumberOfChannels:(UInt32)numberOfChannels {
 }
 
 - (IBAction)showCameraPicker {
-    SimpleCam * simpleCam = [[SimpleCam alloc]init];
-    simpleCam.delegate = self;
-    [self presentViewController:simpleCam animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        SimpleCam * simpleCam = [[SimpleCam alloc]init];
+        simpleCam.delegate = self;
+        [self presentViewController:simpleCam animated:YES completion:nil];
+    });
 }
 
 - (void) initOrientation {

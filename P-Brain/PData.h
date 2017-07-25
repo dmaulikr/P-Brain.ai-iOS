@@ -10,4 +10,8 @@
 
 @interface PData : NSObject
 
++(PData*) getData;
+
+- (NSString *)getIPAddress;
+
 @end
